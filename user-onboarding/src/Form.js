@@ -33,21 +33,18 @@ function UserForm({ values, errors, touched, status }) {
       <Form className="form-container">
         <h1>Log User!</h1>
         <label htmlFor="name">
-          Name:
           <Field id="name" type="text" name="name" placeholder="Name" />
           {touched.name && errors.name && (
             <p className="errors">{errors.name}</p>
           )}
         </label>
         <label htmlFor="email">
-          Email:
           <Field id="email" type="text" name="email" placeholder="Email" />
           {touched.email && errors.email && (
             <p className="errors">{errors.email}</p>
           )}
         </label>
         <label htmlFor="password">
-          Password:
           <Field
             id="password"
             type="password"
@@ -57,6 +54,18 @@ function UserForm({ values, errors, touched, status }) {
           {touched.password && errors.password && (
             <p className="errors">{errors.password}</p>
           )}
+        </label>
+        <label>
+          <Field as="select" name="role">
+            <option disabled value="0">
+              Chose a Role
+            </option>
+            <option value="manager">Manager</option>
+            <option value="assistant manager">Assistant Manager</option>
+            <option value="assistant to the manager">
+              Assistant to the Manager
+            </option>
+          </Field>
         </label>
         <label>
           Terms and Conditions:
@@ -69,6 +78,7 @@ function UserForm({ values, errors, touched, status }) {
           <UserDiv key="user.id">
             <h2>{user.name}</h2>
             <p>{user.email}</p>
+            <p>{user.role}</p>
           </UserDiv>
         );
       })}
@@ -83,6 +93,7 @@ const FormikUserForm = withFormik({
       name: "",
       email: "",
       password: "",
+      role: "0",
       terms: false
     };
   },
