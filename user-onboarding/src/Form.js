@@ -57,12 +57,12 @@ function UserForm({ values, errors, touched, status }) {
         </label>
         <label>
           <Field as="select" name="role">
-            <option disabled value="0">
+            <option disabled value="No Role Chosen">
               Chose a Role
             </option>
-            <option value="manager">Manager</option>
-            <option value="assistant manager">Assistant Manager</option>
-            <option value="assistant to the manager">
+            <option value="Manager">Manager</option>
+            <option value="Assistant Manager">Assistant Manager</option>
+            <option value="Assistant to the Manager">
               Assistant to the Manager
             </option>
           </Field>
@@ -93,7 +93,7 @@ const FormikUserForm = withFormik({
       name: "",
       email: "",
       password: "",
-      role: "0",
+      role: "No Role Chosen",
       terms: false
     };
   },
